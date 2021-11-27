@@ -1,7 +1,7 @@
 # action.yml
 name: JISHIDA-ACTION
 author: funnyzak
-description: jishida(http://push.ijingniu.cn/) message push
+description: jishida wechat message push service. via@http://push.ijingniu.cn
 branding:
   icon: 'message-square'
   color: 'gray-dark'
