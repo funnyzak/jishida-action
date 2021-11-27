@@ -1,0 +1,29 @@
+# action.yml
+name: JISHIDA-ACTION
+author: funnyzak
+description: jishida(http://push.ijingniu.cn/) message push
+branding:
+  icon: 'message-square'
+  color: 'gray-dark'
+inputs:
+  key: 
+    description: 'jishida channel push key'
+    required: true
+  head: 
+    description: 'Message header, less than 1000 in length'
+    required: true
+    default: 'hello'
+  body: 
+    description: 'The body of the message is less than 1m in length. If the data is too long, please use POST. Remember that body is UrlEncode and supports markdown format.'
+    required: true
+    default: 'world'
+outputs:
+  response:
+    description: 'meta response'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.key }}
+    - ${{ inputs.head }}
+    - ${{ inputs.body }}

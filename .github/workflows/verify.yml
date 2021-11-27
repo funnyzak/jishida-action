@@ -1,0 +1,15 @@
+on: push
+name: Test
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: JISHIDA PUSH
+      uses: ./.
+      with:
+        key: ${{ secrets.JISHIDA_PUSH_KEY }}
+        head: hello
+        body: world
