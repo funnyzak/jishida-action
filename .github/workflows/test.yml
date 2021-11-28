@@ -16,6 +16,7 @@ jobs:
       - id: readbody
         run: |
            readme_content=`cat ./README.md`
+           echo "$readme_content"
            echo "::set-output name=body::$readme_content"
       - name: JISHIDA PUSH
         uses: ./.
