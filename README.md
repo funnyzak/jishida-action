@@ -16,7 +16,7 @@
 
 发送固定信息。
 
-```bash
+```yaml
 steps:
   - name: JISHIDA Push.
     uses: funnyzak/jishida-action@master
@@ -28,7 +28,7 @@ steps:
 
 读取 __README.md__ 文件发送。
 
-```
+```yaml
 steps:
   - name: Checkout Source
     uses: actions/checkout@v1
