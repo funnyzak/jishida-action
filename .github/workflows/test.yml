@@ -33,4 +33,4 @@ jobs:
         with:
           key: ${{ secrets.JISHIDA_PUSH_KEY }}
           head: hello
-          body: $GITHUB_CONTEXT
+          body: ${{ env.GITHUB_CONTEXT }}
