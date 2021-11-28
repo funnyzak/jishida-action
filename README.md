@@ -51,6 +51,5 @@ steps:
 
 MIT License © 2021 [funnyzak](https://github.com/funnyzak)
 
-
 [license-image]: https://img.shields.io/static/v1?label=licence&message=MIT&color=Green
 [issues-image]: https://img.shields.io/github/issues/funnyzak/jishida-action
