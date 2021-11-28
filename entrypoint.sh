@@ -20,16 +20,17 @@ if [ -z "$INPUT_KEY" ]; then
   echo "You must specify jishida key."
   exit 0
 fi
-  
+
 if [ -z "$head" ]; then
   head="$GITHUB_REPOSITORY action triggered"
 fi
 
-if [ -z "$body" ]; then
-  body=$body
+if [ -f ${body} ]; then
+  body=$(cat $body)
+elif [ -z "$body" ]; then
+  body=$head
 fi
 
 echo $GITHUB_HEAD_REF
-
 
 /usr/bin/curl -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" --data-urlencode "key=${INPUT_KEY}" --data-urlencode "head=${head}" --data-urlencode "body=${body}" $JISHIDA_ENDPOINT

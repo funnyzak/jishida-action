@@ -1,0 +1,25 @@
+name: Test
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source codes
+        uses: actions/checkout@v1
+      - id: readbody
+        run: |
+           readme_content=`cat ./README.md`
+           echo "::set-output name=body::$readme_content"
+      - name: JISHIDA PUSH
+        uses: ./.
+        with:
+          key: ${{ secrets.JISHIDA_PUSH_KEY }}
+          head: hello
+          body:  ${{ steps.readbody.outputs.body }}
