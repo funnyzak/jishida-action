@@ -33,7 +33,7 @@ fi
 
 echo $GITHUB_HEAD_REF
 
-keys=(${INPUT_KEY//,/ })
+keys=${INPUT_KEY//,/ }
 
 for key in ${keys[@]}
 do
