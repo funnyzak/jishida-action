@@ -14,6 +14,8 @@
 
 ## 使用
 
+发送固定信息。
+
 ```bash
 steps:
   - name: JISHIDA Push.
@@ -24,12 +26,26 @@ steps:
       body: world
 ```
 
+读取 __README.md__ 文件发送。
 
-## Author
-
-| [![twitter/funnyzak](https://s.gravatar.com/avatar/c2437e240644b1317a4a356c6d6253ee?s=70)](https://twitter.com/funnyzak 'Follow @funnyzak on Twitter') |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [funnyzak](https://yycc.me/)                                                                                                                           |
+```
+steps:
+  - name: Checkout Source
+    uses: actions/checkout@v1
+  - id: GetReadMe
+    run: |
+      readme_content=`cat ./README.md`
+      readme_content="${readme_content//'%'/'%25'}"
+      readme_content="${readme_content//$'\n'/'%0A'}"
+      readme_content="${readme_content//$'\r'/'%0D'}"
+      echo "::set-output name=body::$readme_content"
+  - name: JISHIDA PUSH
+    uses: funnyzak/jishida-action@master
+    with:
+      key: ${{ secrets.JISHIDA_PUSH_KEY }}
+      head: hello
+      body: ${{ steps.GetReadMe.outputs.body }}
+```
 
 ## License
 
