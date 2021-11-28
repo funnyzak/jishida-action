@@ -35,7 +35,7 @@ echo $GITHUB_HEAD_REF
 
 keys=${INPUT_KEY//,/ }
 
-for key in $(keys[@])
+for key in "${keys[@]}"
 do
   /usr/bin/curl -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" --data-urlencode "key=${key}" --data-urlencode "head=${head}" --data-urlencode "body=${body}" $JISHIDA_ENDPOINT
 done
