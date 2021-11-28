@@ -15,9 +15,11 @@ jobs:
         uses: actions/checkout@v1
       - id: readbody
         run: |
-           readme_content=`cat ./README.md`
-           echo "$readme_content"
-           echo "::set-output name=body::$readme_content"
+          readme_content=`cat ./README.md`
+          readme_content="${readme_content//'%'/'%25'}"
+          readme_content="${readme_content//$'\n'/'%0A'}"
+          readme_content="${readme_content//$'\r'/'%0D'}"
+          echo "::set-output name=body::$readme_content"
       - name: JISHIDA PUSH
         uses: ./.
         with:
