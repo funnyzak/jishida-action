@@ -22,4 +22,4 @@ jobs:
         with:
           key: ${{ secrets.JISHIDA_PUSH_KEY }}
           head: hello
-          body:  ${{ steps.readbody.outputs.body }}
+          body: ${{ steps.readbody.outputs.body }}

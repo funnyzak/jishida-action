@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 JISHIDA_ENDPOINT="http://push.ijingniu.cn/send"
 GITHUB_HEAD_REF=$GITHUB_HEAD_REF
 GITHUB_REF=$GITHUB_REF
@@ -25,9 +27,7 @@ if [ -z "$head" ]; then
   head="$GITHUB_REPOSITORY action triggered"
 fi
 
-if [ -f ${body} ]; then
-  body=$(cat $body)
-elif [ -z "$body" ]; then
+if [ -z "$body" ]; then
   body=$head
 fi
 

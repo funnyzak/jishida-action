@@ -3,9 +3,7 @@
 ![License][license-image]
 ![Issues][issues-image]
 
-执行[即时达](http://push.ijingniu.cn)消息发送。
-
-即时达基于微信模板的一对多消息送达服务。
+[即时达](http://push.ijingniu.cn)基于微信模板的一对多消息送达服务。
 
 ## 参数
 
